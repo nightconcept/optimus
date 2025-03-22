@@ -8,7 +8,7 @@ defmodule Optimus.Mixfile do
     [
       app: :optimus,
       version: @version,
-      elixir: "~> 1.3",
+      elixir: "~> 1.18",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -33,22 +33,11 @@ defmodule Optimus.Mixfile do
     [applications: [:logger]]
   end
 
-  cond do
-    System.version() |> Version.match?(">= 1.10.0") ->
-      def ex_doc_version(), do: "~> 0.23"
-
-    System.version() |> Version.match?(">= 1.7.0") ->
-      def ex_doc_version(), do: "~> 0.22.0"
-
-    true ->
-      def ex_doc_version(), do: "~> 0.18.0"
-  end
-
   defp deps do
     [
-      {:excoveralls, "~> 0.5", only: :test},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:ex_doc, ex_doc_version(), only: :dev, runtime: false}
+      {:excoveralls, "~> 0.18", only: :test},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.37", only: :dev, runtime: false}
     ]
   end
 

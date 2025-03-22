@@ -68,7 +68,7 @@ defmodule Optimus.Option do
       length = String.length(option.long) + 1
 
       if option.long <> "=" == String.slice(str, 0..(length - 1)) do
-        {:ok, String.slice(str, length..-1)}
+        {:ok, String.slice(str, length..String.length(str))}
       else
         :none
       end
