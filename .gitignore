@@ -24,3 +24,6 @@ optimus-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+# Nix direnv directory
+.direnv/
